@@ -18,7 +18,7 @@
 bool CONFIG_Read();
 
 //Returns the serial number string specified in the configuration
-char* CONFIG_GetSerialNumber();
+const char* CONFIG_GetSerialNumber();
 
 
 #endif /* INC_CONFIG_H_ */

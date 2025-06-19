@@ -17,5 +17,8 @@
 //Performs system initialisation, returns success
 bool SYSTEM_Init();
 
+//Handles a new temperature update interrupt
+void SYSTEM_HandleTempUpdateInterrupt();
+
 
 #endif /* INC_SYSTEM_H_ */

@@ -15,6 +15,10 @@
 #include "display.h"
 
 
+//maximum value of ADC counts (i.e., ADC count value of positive reference)
+#define BSP_ADC_COUNT_MAX 4095
+
+
 typedef enum {
   REV_A = 0,
   REV_B = 1,
@@ -50,7 +54,7 @@ void BSP_SetDisplay(DISPLAY_State state);
  ******************************************/
 
 //read `length` bytes starting at EEPROM address `address` into `buffer`, returns success
-bool BSP_ReadEEPROM(uint16_t address, uint8_t* buffer, uint16_t length);
+bool BSP_ReadEEPROM(uint16_t address, uint8_t* buffer, uint8_t length);
 
 
 #endif /* INC_BSP_H_ */

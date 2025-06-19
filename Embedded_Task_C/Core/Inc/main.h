@@ -41,7 +41,13 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
+extern ADC_HandleTypeDef hadc1;
 
+extern I2C_HandleTypeDef hi2c2;
+
+extern TIM_HandleTypeDef htim2;
+
+extern UART_HandleTypeDef huart3;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
@@ -87,6 +93,12 @@ void Error_Handler(void);
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
+#define LED_GREEN_Pin GPIO_PIN_5
+#define LED_GREEN_GPIO_Port GPIOD
+#define LED_YELLOW_Pin GPIO_PIN_6
+#define LED_YELLOW_GPIO_Port GPIOD
+#define LED_RED_Pin GPIO_PIN_7
+#define LED_RED_GPIO_Port GPIOD
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
 

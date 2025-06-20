@@ -8,5 +8,45 @@
  */
 
 
+#include "display.h"
+#include "system_manager.h"
 
 
+//Performs initialisation of the display, returns success
+bool Display::Init() {
+  BSP* bsp = SystemManager::instance.GetBSP();
+  if (bsp == NULL) {
+    return false;
+  }
+
+  //turn display off by default
+  this->display_state = DISP_OFF;
+  bsp->SetDisplay(this->display_state);
+
+  return true;
+}
+
+//Updates the display based on the given temperature (in °C)
+void Display::Update(float temperature) {
+  if (temperature >= DISP_NORMAL_TEMP_MIN && temperature < DISP_NORMAL_TEMP_MAX) {
+    //normal temperature range
+    this->display_state = DISP_NORMAL;
+  } else if (temperature >= DISP_WARNING_TEMP_MIN && temperature < DISP_WARNING_TEMP_MAX) {
+    //warning temperature range
+    this->display_state = DISP_WARNING;
+  } else {
+    //critical temperature range
+    this->display_state = DISP_CRITICAL;
+  }
+
+  //update physical display accordingly
+  BSP* bsp = SystemManager::instance.GetBSP();
+  if (bsp != NULL) {
+    bsp->SetDisplay(this->display_state);
+  }
+}
+
+//Returns the current display state
+DISPLAY_State Display::GetState() const {
+  return this->display_state;
+}

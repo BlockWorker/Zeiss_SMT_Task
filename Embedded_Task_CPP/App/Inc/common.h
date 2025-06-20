@@ -11,7 +11,10 @@
 #define INC_COMMON_H_
 
 
+#include <cstdio>
+#include <cstdint>
 
+#include "defines.h"
 
 
 #endif /* INC_COMMON_H_ */

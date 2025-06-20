@@ -32,7 +32,7 @@ bool SYSTEM_Init() {
   }
 
   //print system information
-  printf("Starting temperature monitor Rev. %s\n", (hardware_revision == REV_A) ? "A" : ((hardware_revision == REV_B) ? "B" : "C"));
+  printf("Starting temperature monitor, C version, Rev. %s\n", (hardware_revision == REV_A) ? "A" : ((hardware_revision == REV_B) ? "B" : "C"));
   printf("Serial number: %s\n", CONFIG_GetSerialNumber());
 
   //initialise display

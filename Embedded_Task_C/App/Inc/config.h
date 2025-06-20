@@ -15,7 +15,7 @@
 
 
 //Reads the configuration from ROM, returns success
-bool CONFIG_Read();
+bool CONFIG_Load();
 
 //Returns the serial number string specified in the configuration
 const char* CONFIG_GetSerialNumber();

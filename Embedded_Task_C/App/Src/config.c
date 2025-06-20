@@ -27,7 +27,7 @@ static char config_serial_number[CONFIG_SERIAL_LENGTH + 1] = "";
 
 
 //Reads the configuration from ROM, returns success
-bool CONFIG_Read() {
+bool CONFIG_Load() {
   //read revision from EEPROM
   uint8_t revision;
   if (!BSP_ReadEEPROM(CONFIG_REVISION_ADDRESS, &revision, CONFIG_REVISION_SIZE)) {

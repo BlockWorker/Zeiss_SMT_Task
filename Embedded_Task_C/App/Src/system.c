@@ -17,7 +17,7 @@
 //Performs system initialisation, returns success
 bool SYSTEM_Init() {
   //start by reading the configuration from EEPROM
-  if (!CONFIG_Read()) {
+  if (!CONFIG_Load()) {
     printf("* Configuration read failed!\n");
     return false;
   }

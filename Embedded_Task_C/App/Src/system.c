@@ -9,10 +9,13 @@
 
 #include "system.h"
 #include "bsp.h"
-#include "config.h"
+#include "hardware_config.h"
 #include "display.h"
 #include "temp_sensor.h"
 
+
+//the currently active hardware revision - assume revision A by default, updated when config is read
+HardwareRevision hardware_revision = REV_A;
 
 //flag whether a new ADC measurement is available to be read
 static volatile bool adc_update_available = false;

@@ -15,5 +15,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "defines.h"
+
 
 #endif /* INC_COMMON_H_ */

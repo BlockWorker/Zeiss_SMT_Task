@@ -12,20 +12,6 @@
 #include "system.h"
 
 
-//I2C address of the EEPROM chip
-#define BSP_EEPROM_I2C_ADDR 0x57
-//maximum memory address of the EEPROM chip
-#define BSP_EEPROM_MAX_MEM_ADDR 0xFFF
-//maximum bytes supported per EEPROM read
-#define BSP_EEPROM_MAX_READ_BYTES 32
-//EEPROM read timeout in milliseconds
-#define BSP_EEPROM_READ_TIMEOUT_MS 10
-
-
-//the currently active hardware revision - assume revision A by default, updated when config is read
-BSP_HardwareRevision hardware_revision = REV_A;
-
-
 /******************************************
  *               TEMP/ADC                 *
  ******************************************/

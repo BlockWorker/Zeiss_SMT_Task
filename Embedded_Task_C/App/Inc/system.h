@@ -14,6 +14,17 @@
 #include "common.h"
 
 
+typedef enum {
+  REV_A = REV_A_VALUE,
+  REV_B = REV_B_VALUE,
+  REV_C = REV_C_VALUE
+} HardwareRevision;
+
+
+//the currently active hardware revision
+extern HardwareRevision hardware_revision;
+
+
 //Performs system initialisation, returns success
 bool SYSTEM_Init();
 

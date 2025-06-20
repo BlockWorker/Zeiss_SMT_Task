@@ -15,21 +15,6 @@
 #include "display.h"
 
 
-//maximum value of ADC counts (i.e., ADC count value of positive reference)
-#define BSP_ADC_COUNT_MAX 4095
-
-
-typedef enum {
-  REV_A = 0,
-  REV_B = 1,
-  REV_C = 2
-} BSP_HardwareRevision;
-
-
-//the currently active hardware revision
-extern BSP_HardwareRevision hardware_revision;
-
-
 /******************************************
  *               TEMP/ADC                 *
  ******************************************/

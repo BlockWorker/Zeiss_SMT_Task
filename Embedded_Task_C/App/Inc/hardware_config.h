@@ -1,5 +1,5 @@
 /*
- * config.h
+ * hardware_config.h
  *
  *  Created on: Jun 18, 2025
  *      Author: Alex
@@ -7,8 +7,8 @@
  *  Contains the hardware configuration settings.
  */
 
-#ifndef INC_CONFIG_H_
-#define INC_CONFIG_H_
+#ifndef INC_HARDWARE_CONFIG_H_
+#define INC_HARDWARE_CONFIG_H_
 
 
 #include "common.h"
@@ -21,4 +21,4 @@ bool CONFIG_Load();
 const char* CONFIG_GetSerialNumber();
 
 
-#endif /* INC_CONFIG_H_ */
+#endif /* INC_HARDWARE_CONFIG_H_ */

@@ -9,33 +9,18 @@
 
 #include "temp_sensor.h"
 #include "bsp.h"
+#include "system.h"
 #include <math.h>
 
 
-//temperature conversion factors (°C per count) for hardware revisions A and B
-#define TEMP_REV_A_FACTOR 1.0f
-#define TEMP_REV_B_FACTOR 0.1f
-
-//temperature conversion parameters for hardware revision C (NTC thermistor with pull-up resistor)
-//pull-up resistor value in ohms
-#define TEMP_REV_C_PULLUP 200000.0f
-//nominal (25°C) thermistor resistance in ohms
-#define TEMP_REV_C_THERM_NOMINAL 220000.0f
-//Steinhart-Hart coefficients of the NTC thermistor
-#define TEMP_REV_C_COEFF_A 3.354016E-03f
-#define TEMP_REV_C_COEFF_B 2.367720E-04f
-#define TEMP_REV_C_COEFF_C 3.585140E-06f
-#define TEMP_REV_C_COEFF_D 1.255349E-07f
-
-
-//last temperature measurement in °C, assume 25°C initially
-static float temp_last = 25.0f;
+//last temperature measurement in °C, assume default value initially
+static float temp_last = TEMP_DEFAULT_VALUE;
 
 
 //Performs initialisation of the temperature sensor, returns success
 bool TEMP_Init() {
-  //reset "last" measurement to default of 25°C
-  temp_last = 25.0f;
+  //reset "last" measurement to default
+  temp_last = TEMP_DEFAULT_VALUE;
 
   //initialise and start the ADC
   return BSP_StartADC();
@@ -45,7 +30,7 @@ bool TEMP_Init() {
 //calculates NTC thermistor temperature approximation (in °C) for Rev. C
 static float TEMP_CalculateNTCApproximationRevC(uint32_t adc_counts) {
   //calculate measured voltage, as a ratio of the reference/supply voltage
-  float voltage_ratio = (float)adc_counts / (float)BSP_ADC_COUNT_MAX;
+  float voltage_ratio = (float)adc_counts / (float)ADC_COUNT_MAX;
 
   //calculate resistance of the thermistor in its voltage divider
   float therm_resistance = TEMP_REV_C_PULLUP / (1.0f / voltage_ratio - 1.0f);

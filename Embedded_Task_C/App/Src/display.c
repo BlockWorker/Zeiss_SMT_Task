@@ -11,13 +11,6 @@
 #include "bsp.h"
 
 
-//temperature limits for "normal" and "warning" regions, everything else is considered "critical"
-#define DISP_NORMAL_TEMP_MIN 5.0f
-#define DISP_NORMAL_TEMP_MAX 85.0f
-#define DISP_WARNING_TEMP_MIN 85.0f
-#define DISP_WARNING_TEMP_MAX 105.0f
-
-
 //current display state - assume off by default
 static DISPLAY_State display_state = DISP_OFF;
 

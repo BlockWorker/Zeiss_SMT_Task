@@ -1,5 +1,5 @@
 /*
- * config.c
+ * hardware_config.c
  *
  *  Created on: Jun 18, 2025
  *      Author: Alex
@@ -7,19 +7,9 @@
  *  Contains the hardware configuration settings.
  */
 
-#include "config.h"
+#include "hardware_config.h"
 #include "bsp.h"
-
-
-//memory address of the hardware revision
-#define CONFIG_REVISION_ADDRESS 0
-//length of the hardware revision, in bytes
-#define CONFIG_REVISION_SIZE 1
-
-//memory address of the serial number
-#define CONFIG_SERIAL_ADDRESS 1
-//length of the serial number, in bytes
-#define CONFIG_SERIAL_LENGTH 8
+#include "system.h"
 
 
 //serial number, initially empty
@@ -30,14 +20,14 @@ static char config_serial_number[CONFIG_SERIAL_LENGTH + 1] = "";
 bool CONFIG_Load() {
   //read revision from EEPROM
   uint8_t revision;
-  if (!BSP_ReadEEPROM(CONFIG_REVISION_ADDRESS, &revision, CONFIG_REVISION_SIZE)) {
+  if (!BSP_ReadEEPROM(CONFIG_REVISION_ADDRESS, &revision, CONFIG_REVISION_LENGTH)) {
     return false;
   }
 
   //check for revision validity
-  if (revision == REV_A || revision == REV_B || revision == REV_C) {
+  if (revision == REV_A_VALUE || revision == REV_B_VALUE || revision == REV_C_VALUE) {
     //valid: update hardware revision, continue
-    hardware_revision = (BSP_HardwareRevision)revision;
+    hardware_revision = (HardwareRevision)revision;
   } else {
     //invalid: return failure
     return false;

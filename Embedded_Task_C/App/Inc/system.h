@@ -17,8 +17,11 @@
 //Performs system initialisation, returns success
 bool SYSTEM_Init();
 
-//Handles a new temperature update interrupt
-void SYSTEM_HandleTempUpdateInterrupt();
+//Performs main system loop processing
+void SYSTEM_LoopUpdate();
+
+//Handles ADC conversion-complete interrupts
+void SYSTEM_HandleADCInterrupt();
 
 
 #endif /* INC_SYSTEM_H_ */

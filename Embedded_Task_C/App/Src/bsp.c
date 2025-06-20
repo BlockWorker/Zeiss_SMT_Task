@@ -50,7 +50,7 @@ uint32_t BSP_GetADCValue() {
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
   if (hadc == &hadc1) {
     //notify the system of the update
-    SYSTEM_HandleTempUpdateInterrupt();
+    SYSTEM_HandleADCInterrupt();
   }
 }
 

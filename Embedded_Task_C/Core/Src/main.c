@@ -124,6 +124,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+    //perform system loop updates
+    SYSTEM_LoopUpdate();
   }
   /* USER CODE END 3 */
 }

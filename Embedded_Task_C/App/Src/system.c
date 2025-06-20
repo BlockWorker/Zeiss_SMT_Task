@@ -14,8 +14,14 @@
 #include "temp_sensor.h"
 
 
+//flag whether a new ADC measurement is available to be read
+static volatile bool adc_update_available = false;
+
+
 //Performs system initialisation, returns success
 bool SYSTEM_Init() {
+  adc_update_available = false;
+
   //start by reading the configuration from EEPROM
   if (!CONFIG_Load()) {
     printf("* Configuration read failed!\n");
@@ -41,21 +47,32 @@ bool SYSTEM_Init() {
   return true;
 }
 
-//Handles a new temperature update interrupt
-void SYSTEM_HandleTempUpdateInterrupt() {
-  //get the raw ADC value from the temperature sensor
-  uint32_t adc_counts = BSP_GetADCValue();
+//Performs main system loop processing
+void SYSTEM_LoopUpdate() {
+  //perform temperature updates whenever there is a new ADC measurement available
+  if (adc_update_available) {
+    adc_update_available = false;
 
-  //convert the ADC value to the actual temperature in °C
-  float temp_C = TEMP_HandleUpdate(adc_counts);
+    //get the raw ADC value from the temperature sensor
+    uint32_t adc_counts = BSP_GetADCValue();
 
-  //update the display according to the temperature
-  DISPLAY_Update(temp_C);
+    //convert the ADC value to the actual temperature in °C
+    float temp_C = TEMP_HandleUpdate(adc_counts);
 
-  //print every 10000th temperature value to the console
-  static uint32_t update_counter = 0;
-  if (++update_counter >= 10000) {
-    update_counter = 0;
-    printf("Temperature: %.2f C\n", temp_C);
+    //update the display according to the temperature
+    DISPLAY_Update(temp_C);
+
+    //print every 10000th temperature value to the console
+    static uint32_t update_counter = 0;
+    if (++update_counter >= 10000) {
+      update_counter = 0;
+      printf("Temperature: %.2f C\n", temp_C);
+    }
   }
+}
+
+//Handles ADC conversion-complete interrupts
+void SYSTEM_HandleADCInterrupt() {
+  //set update available flag
+  adc_update_available = true;
 }

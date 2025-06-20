@@ -106,6 +106,8 @@ int main(void)
 
   RetargetInit(&huart3);
 
+  HAL_Delay(1000);
+
   if (!SYSTEM_Init()) {
     //initialisation failed: wait a little to allow debug printouts to finish, then halt
     printf("*** System initialisation failed!\n");

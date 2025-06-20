@@ -3,6 +3,8 @@
  *
  *  Created on: Jun 18, 2025
  *      Author: Alex
+ *
+ *  Handles the temperature sensor interaction.
  */
 
 #include "temp_sensor.h"

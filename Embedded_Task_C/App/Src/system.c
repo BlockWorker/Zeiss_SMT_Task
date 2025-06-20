@@ -3,6 +3,8 @@
  *
  *  Created on: Jun 18, 2025
  *      Author: Alex
+ *
+ *  Contains the central initialisation and system management logic.
  */
 
 #include "system.h"

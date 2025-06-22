@@ -1,0 +1,96 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "0952b138-c69d-4e89-b3ad-c0971d8aadc1")
+	(paper "A4")
+	(lib_symbols)
+	(hierarchical_label "ADC1 IN3"
+		(shape input)
+		(at 40.64 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3a93ac61-2d30-4673-8eb6-c1f54952d22e")
+	)
+	(hierarchical_label "PD7"
+		(shape output)
+		(at 40.64 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "48f0e974-f65c-40bf-baf9-c9355f75a5ea")
+	)
+	(hierarchical_label "USB"
+		(shape passive)
+		(at 40.64 97.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "55fff082-8661-45eb-8bc5-34ac84d59f51")
+	)
+	(hierarchical_label "SDA"
+		(shape bidirectional)
+		(at 40.64 91.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "63ce9816-8d36-4f39-a5d8-e2bd785404fd")
+	)
+	(hierarchical_label "3.3V"
+		(shape output)
+		(at 40.64 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9c7b8e48-72a6-4e15-ab34-1f8d2a7705b7")
+	)
+	(hierarchical_label "PD5"
+		(shape output)
+		(at 40.64 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9e269466-58cd-4892-ae83-7055d6dd0f42")
+	)
+	(hierarchical_label "SCL"
+		(shape bidirectional)
+		(at 40.64 86.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b672e2c8-30a4-4bf9-bb4e-83275cf7cb9a")
+	)
+	(hierarchical_label "PD6"
+		(shape output)
+		(at 40.64 66.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d0d41cf5-b1d0-4cbd-90f2-e26be5286e4f")
+	)
+)

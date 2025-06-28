@@ -47,6 +47,6 @@ void Display::Update(float temperature) {
 }
 
 //Returns the current display state
-DISPLAY_State Display::GetState() const {
+DisplayState Display::GetState() const {
   return this->display_state;
 }

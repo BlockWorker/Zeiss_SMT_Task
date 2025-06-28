@@ -39,7 +39,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 
 
 //sets the physical display to the given state
-void BSP::SetDisplay(DISPLAY_State state) {
+void BSP::SetDisplay(DisplayState state) {
   //update green LED
   HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, (state == DISP_NORMAL) ? GPIO_PIN_SET : GPIO_PIN_RESET);
 

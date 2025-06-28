@@ -23,7 +23,7 @@ public:
   uint32_t GetADCValue() const;
 
   //sets the physical display to the given state
-  void SetDisplay(DISPLAY_State state);
+  void SetDisplay(DisplayState state);
 
   //read `length` bytes starting at EEPROM address `address` into `buffer`, returns success
   bool ReadEEPROM(uint16_t address, uint8_t* buffer, uint8_t length);

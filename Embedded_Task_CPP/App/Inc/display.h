@@ -19,7 +19,7 @@ typedef enum {
   DISP_NORMAL = 1,
   DISP_WARNING = 2,
   DISP_CRITICAL = 3
-} DISPLAY_State;
+} DisplayState;
 
 
 class Display {
@@ -31,13 +31,13 @@ public:
   void Update(float temperature);
 
   //Returns the current display state
-  DISPLAY_State GetState() const;
+  DisplayState GetState() const;
 
   //initialise the display to be off at first
   Display() : display_state(DISP_OFF) {}
 
 private:
-  DISPLAY_State display_state;
+  DisplayState display_state;
 };
 
 
